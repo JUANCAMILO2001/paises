@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title') - ACT Paises LCKM INNOVATY</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-
-        }
-    </style>
+    <link rel="stylesheet" href="{{url('./recursos/css/style.css')}}">
 </head>
 <body style="overflow-x:hidden">
 <!-- Form cerrar sesión-->
@@ -21,6 +18,154 @@
 </form>
 <!-- Encabezado Navbar Usuarios Autenticados-->
 <header>
+    <nav class = "navigation-bar d-flex align-items-center">
+        <div class = "container">
+            <div class = "row align-items-center">
+                <div class = "navigation-bar-left col-6 d-flex align-items-center">
+                    <button type = "button" class = "navbar-open-btn text-grey-blue me-3">
+                        <i class = "fas fa-bars"></i>
+                    </button>
+                    <div class = "navbar-logo">
+                        <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px"></i>      ACT PAISES </a>
+                    </div>
+                </div>
+
+                <div class = "navigation-bar-right col-6 d-flex align-items-center justify-content-end">
+
+
+
+                    <li class="nav-item dropdown" style="list-style: none">
+                        <a class="profile-btn bg-blue text-white btn-circle me-3 nav-link dropdown-toggle" title="{{auth()->user()->names}}  {{auth()->user()->lastnames}}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <i class = "fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <span class="d-flex justify-content-center profile-btn bg-blue text-white btn-circle me-3 nav-link dropdown-toggle"  style="margin-left: 65px;">
+                                    <i class = "fas fa-user"></i>
+                                </span>
+                                <a class="dropdown-item disabled" href="#scrollspyHeading3">{{auth()->user()->email}}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i>   Configuraciones</a></li>
+                            <li><a class="dropdown-item" onclick="document.getElementById('cerrar').submit()"><i class="fa-solid fa-right-from-bracket"></i>   Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class = "navigation-overlay position-fixed"></div>
+
+    <div class = "navigation-sidebar bg-light-grey">
+        <div class = "navbar-sb-head d-flex justify-content-between align-items-center px-4">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px"></i>      ACT PAISES </a>
+            <button class = "navbar-close-btn text-grey-blue">
+                <i class = 'fas fa-arrow-left'></i>
+            </button>
+        </div>
+
+        <div class = "navbar-sb-list p-4">
+            <div class = "navbar-sb-item mb-5">
+                <h5 class = "text-uppercase text-grey navbar-sb-item-title fs-12 ls-1">CREAR</h5>
+                <ul class = "navbar-sb-links p-0 list-unstyled">
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-earth-africa"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Paises</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-earth-africa"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Departamentos</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-earth-africa"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Municipios</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class = "navbar-sb-item mb-5">
+                <h5 class = "text-uppercase text-grey navbar-sb-item-title fs-12 ls-1">LISTAR</h5>
+                <ul class = "navbar-sb-links p-0 list-unstyled">
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-list"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Paises</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-list"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Departamentos</span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-list"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Municipios</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class = "navbar-sb-item mb-5">
+                <h5 class = "text-uppercase text-grey navbar-sb-item-title fs-12 ls-1">Opciones</h5>
+                <ul class = "navbar-sb-links p-0 list-unstyled">
+                    <li class = "navbar-sb-link my-3">
+                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Configuraciones</span>
+                            </div>
+                        </a>
+                    </li><li class = "navbar-sb-link my-3">
+                        <a onclick="document.getElementById('cerrar').submit()" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                            <div class = "text-light-blue d-flex align-items-center">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </span>
+                                <span class = "navbar-sb-text fs-14 fw-5 text-capitalize">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa"></i>Actividad Paises - LCKM INNOVATY</a>
@@ -76,28 +221,12 @@
             </div>
         </div>
     </nav>
+-->
 </header>
 <main>
     <div class="row">
-        <div class="col-2 mt-2 border shadow">
-            <form class="d-flex m-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
 
-            <div class="list-group m-3">
-                <a href="{{route('dashboard')}}" class="list-group-item list-group-item-action"><i class="fa-solid fa-house"></i>Inicio</a>
-                <a href="{{route('countries.create')}}" class="list-group-item list-group-item-action"><i class="fa-solid fa-earth-africa"></i>Crear Pais</a>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-building"></i>Crear Departamento</a>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fa-solid fa-earth-africa"></i>Crear Municipio</a>
-                <a href="{{route('countries.index')}}" class="list-group-item list-group-item-action"><i class="fa-solid fa-bars-staggered"></i>Listar Pais</a>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fa-solid fa-bars-staggered"></i>Listar Departamento</a>
-                <a href="#" class="list-group-item list-group-item-action"><i class="fa-solid fa-bars-staggered"></i>Listar Municipio</a>
-            </div>
-
-
-        </div>
-        <div class="col-10 mt-5">
+        <div class = "dashboard-pg text-grey-blue">
             @yield('content')
         </div>
     </div>
@@ -110,6 +239,11 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="{{'./recursos/js/script.js'}}"></script>
+
 </body>
+
 </html>

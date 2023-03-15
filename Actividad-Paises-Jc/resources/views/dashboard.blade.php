@@ -1,67 +1,90 @@
 @extends('layouts.app')
 @section('title', 'DASHBOARD')
 @section('content')
-<div class="row row-cols-1 row-cols-md-2 ">
 
-        <div class="card m-3 col-md-4"  style="max-width: 400px;">
-            <div class="row ">
-                <div class="col-md-5">
-                    <div class="card-body">
-                        <a class="card-text" href="{{route('countries.create')}}">Nuevo Pais</a>
+
+
+        <div class = "dashboard-main">
+            <div class = "container">
+                <div class = "row py-3">
+                    <div class = "col-12 d-flex justify-content-between align-items-center">
+                        <div class = "dashboard-title-text">
+                            <h2>Bienvenido {{auth()->user()->names}} </h2>
+                            <p class = "text-grey">Este es un Software creado por LCKM INNOVATY.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class = "overview-section p-4">
+
+
+                    <div class = "row overview-section-list gy-4">
+                        <!-- Nuevo Pais-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Nuevo Pais</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Nuevo Departamento-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Nuevo Departamento</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Nuevo Municipio-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Nuevo Municipio</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Listar Pais-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Listar Pais</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Listar Departamento-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Listar Departamento</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Listar Municipio-->
+                        <div class = "col-md-6 col-lg-4">
+                            <a href = "#" class = "text-decoration-none">
+                                <div class = "overview-section-item bg-white p-4">
+                                    <div class = "item-title text-cyan fs-4 fw-6 mb-1">
+                                        <span class = "text-blue">Listar Municipio</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-    <div class="card m-3 col-md-4 " style="max-width: 400px;">
-        <div class="row ">
-            <div class="col-md-5">
-                <div class="card-body">
-                    <p class="card-text"> Nuevo Departamento</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card m-3 col-md-4" style="max-width: 400px;">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="card-body">
-                    <p class="card-text"> Nuevo Municipio</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card m-3 col-md-4"  style="max-width: 400px;">
-        <div class="row ">
-            <div class="col-md-5">
-                <div class="card-body">
-                    <p class="card-text"> Listar Pais</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card m-3 col-md-4 " style="max-width: 400px;">
-        <div class="row ">
-            <div class="col-md-5">
-                <div class="card-body">
-                    <p class="card-text"> Listar Departamento</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card m-3 col-md-4" style="max-width: 400px;">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="card-body">
-                    <p class="card-text"> Listar Municipio</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
