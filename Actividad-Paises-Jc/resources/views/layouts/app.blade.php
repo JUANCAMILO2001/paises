@@ -38,15 +38,38 @@
                         <a class="profile-btn bg-blue text-white btn-circle me-3 nav-link dropdown-toggle" title="{{auth()->user()->names}}  {{auth()->user()->lastnames}}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                             <i class = "fas fa-user"></i>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                            <li class="d-flex justify-content-center">
+                                    <img class="d-flex justify-content-center   text-white btn-circle-user mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
+                            </li>
                             <li>
-                                <span class="d-flex justify-content-center profile-btn bg-blue text-white btn-circle me-3 nav-link dropdown-toggle"  style="margin-left: 65px;">
-                                    <i class = "fas fa-user"></i>
-                                </span>
                                 <a class="dropdown-item disabled" href="#scrollspyHeading3">{{auth()->user()->email}}</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i>   Configuraciones</a></li>
-                            <li><a class="dropdown-item" onclick="document.getElementById('cerrar').submit()"><i class="fa-solid fa-right-from-bracket"></i>   Cerrar Sesión</a></li>
+
+
+                            <li class = "navbar-sb-link my-3">
+                                <a href = "#" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
+                                    <div class = "text-light-blue d-flex align-items-center active-link">
+                                    <span class = "navbar-sb-icon me-3">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </span>
+                                        <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Configuraciones</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class = "navbar-sb-link my-3 ">
+                                <a onclick="document.getElementById('cerrar').submit()" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
+                                    <div class = "text-light-blue d-flex align-items-center active-link">
+                                    <span class = "navbar-sb-icon me-3 ">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </span>
+                                        <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Cerrar Sesión</span>
+                                    </div>
+                                </a>
+                            </li>
+
+
                         </ul>
                     </li>
                 </div>

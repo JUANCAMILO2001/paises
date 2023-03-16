@@ -9,8 +9,8 @@
                 <div class = "row py-3">
                     <div class = "col-12 d-flex justify-content-between align-items-center">
                         <div class = "dashboard-title-text">
-                            <h2>Bienvenido {{auth()->user()->names}} </h2>
-                            <p class = "text-grey">Este es un Software creado por LCKM INNOVATY.</p>
+                            <h2>Bienvenido <span class="fst-italic">{{auth()->user()->names}}</span> </h2>
+                            <p class = "text-grey">Este es un Software creado por <span class="fst-italic fw-bold">LCKM INNOVATY.</span></p>
                         </div>
 
                     </div>

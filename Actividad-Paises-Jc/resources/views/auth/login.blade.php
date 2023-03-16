@@ -1,7 +1,8 @@
 @extends('layouts.guest')
 @section('title', 'Iniciar Sesion')
 @section('content')
-<div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+
+<div class="bg-white p-5 rounded-5 text-secondary shadow " style="width: 25rem">
     <div class="d-flex justify-content-center">
         <img src="{{url('recursos/img/login-icon.svg')}}" alt="login-icon" style="height: 7rem"/>
     </div>
@@ -39,11 +40,11 @@
                 <span class="bg-white px-3">O</span>
             </div>
         </div>
-        <div
+        <a href="{{url('/login-google')}}"
             class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm">
             <img src="{{url('recursos/img/google-icon.svg')}}" alt="google-icon" style="height: 1.6rem"/>
             <div class="fw-semibold text-secondary">Iniciar con Google</div>
-        </div>
+        </a>
     </form>
 
 </div>
