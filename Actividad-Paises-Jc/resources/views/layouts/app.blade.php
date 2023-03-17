@@ -26,7 +26,7 @@
                         <i class = "fas fa-bars"></i>
                     </button>
                     <div class = "navbar-logo">
-                        <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px"></i>      ACT PAISES </a>
+                        <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0"></i>      ACT PAISES </a>
                     </div>
                 </div>
 
@@ -35,39 +35,51 @@
 
 
                     <li class="nav-item dropdown" style="list-style: none">
-                        <a class="profile-btn bg-blue text-white btn-circle me-3 nav-link dropdown-toggle" title="{{auth()->user()->names}}  {{auth()->user()->lastnames}}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            <i class = "fas fa-user"></i>
+                        <a class="profile-btn  text-white btn-circle me-3 nav-link " title="{{auth()->user()->names}}  {{auth()->user()->lastnames}}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            <img class="d-flex justify-content-center border  text-white btn-circle mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
                         </a>
-                        <ul class="dropdown-menu shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                            <li class="d-flex justify-content-center">
-                                    <img class="d-flex justify-content-center   text-white btn-circle-user mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
-                            </li>
-                            <li>
-                                <a class="dropdown-item disabled" href="#scrollspyHeading3">{{auth()->user()->email}}</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                        <ul class="dropdown-menu shadow-lg  mb-5 bg-body-tertiary rounded">
+                            <div class="img-dropdown-user">
+
+                            </div>
+                            <div class="bg-overlay"></div>
+
+                            <div class="dropdown-body-user">
+                                <li class="d-flex justify-content-center">
+                                    <img class="d-flex justify-content-center border  text-white btn-circle-user mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled" href="#scrollspyHeading3">{{auth()->user()->names}}  {{auth()->user()->lastnames}}</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item disabled text-center " href="#scrollspyHeading3" style="font-size: 13px">{{auth()->user()->email}}</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
 
 
-                            <li class = "navbar-sb-link my-3">
-                                <a href = "#" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
-                                    <div class = "text-light-blue d-flex align-items-center active-link">
+                                <li class = "navbar-sb-link my-3">
+                                    <a href = "#" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
+                                        <div class = "text-light-blue d-flex align-items-center active-link">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-gear"></i>
                                     </span>
-                                        <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Configuraciones</span>
-                                    </div>
-                                </a>
-                            </li>
+                                            <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Configuraciones</span>
+                                        </div>
+                                    </a>
+                                </li>
 
-                            <li class = "navbar-sb-link my-3 ">
-                                <a onclick="document.getElementById('cerrar').submit()" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
-                                    <div class = "text-light-blue d-flex align-items-center active-link">
+                                <li class = "navbar-sb-link my-3 ">
+                                    <a onclick="document.getElementById('cerrar').submit()" class = "dropdown-item text-decoration-none d-flex align-items-center justify-content-between">
+                                        <div class = "text-light-blue d-flex align-items-center active-link">
                                     <span class = "navbar-sb-icon me-3 ">
                                         <i class="fa-solid fa-right-from-bracket"></i>
                                     </span>
-                                        <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Cerrar Sesión</span>
-                                    </div>
-                                </a>
-                            </li>
+                                            <span class = "navbar-sb-text fs-14 fw-5 text-capitalize ">Cerrar Sesión</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+
 
 
                         </ul>
@@ -81,7 +93,7 @@
 
     <div class = "navigation-sidebar bg-light-grey">
         <div class = "navbar-sb-head d-flex justify-content-between align-items-center px-4">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px"></i>      ACT PAISES </a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0;"></i>      ACT PAISES </a>
             <button class = "navbar-close-btn text-grey-blue">
                 <i class = 'fas fa-arrow-left'></i>
             </button>
@@ -246,14 +258,15 @@
     </nav>
 -->
 </header>
-<main>
-    <div class="row">
+<div id="particles-js" style="height: 100vh">
 
+</div>
+<main class="bg-map">
+    <div class="row">
         <div class = "dashboard-pg text-grey-blue">
             @yield('content')
         </div>
     </div>
-
 </main>
 
 <footer>
@@ -266,6 +279,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="{{'./recursos/js/script.js'}}"></script>
+<script src="{{url('./recursos/js/particles.min.js')}}"></script>
+<script src="{{url('./recursos/js/app-Dashboard.js')}}"></script>
+
 
 </body>
 

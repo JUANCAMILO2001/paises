@@ -57,12 +57,12 @@
                     <span class="bg-white px-3">O</span>
                 </div>
             </div>
-            <div
+            <a href="{{url('/login-google')}}"
                 class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm"
             >
                 <img src="{{url('recursos/img/google-icon.svg')}}" alt="google-icon" style="height: 1.6rem"/>
                 <div class="fw-semibold text-secondary">Registrate con Google</div>
-            </div>
+            </a>
         </form>
 
     </div>

@@ -5,7 +5,7 @@ body{
 }
 :root{
     --blue-color: #0DCAF0;
-    --cyan-color: #00c9ac;
+    --cyan-color: #0DCAF0;
     --grey-blue-color: #334962;
     --grey-color: #9ea4ac;
     --light-blue-color: #7b92ad;
@@ -63,7 +63,7 @@ a{
     font-size: 10px;
 }
 .btn-circle-user{
-    border: solid 1px rgba(68, 68, 68, 0.92);
+
     width: 80px;
     height: 80px;
     display: flex;
@@ -180,6 +180,7 @@ a{
 .overview-section{
     border: 2px solid rgba(158, 164, 172, 0.3);
     border-radius: 6px;
+    background: white;
 }
 .overview-section-list a{
     color: unset;
@@ -219,3 +220,32 @@ a{
 .overview-section-item:hover .btn-outline-sm{
     border-color: var(--white-color);
 }
+
+.img-dropdown-user{
+    background-image: url(../img/img-dropdown-user.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-top: -8px;
+    min-height: 15vh;
+    position: relative;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.bg-overlay {
+    background: #171819;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    opacity: 0.65;
+}
+
+.dropdown-body-user{
+    margin-top: -50px;
+    position: relative;
+}
+
