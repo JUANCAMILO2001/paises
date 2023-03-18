@@ -17,7 +17,7 @@
 <div id="particles-js" style="height: 100vh">
 
 </div>
-<div class="d-flex justify-content-center align-items-center " style="position: relative; z-index: 99; margin-top: -790px;">
+<div class="d-flex justify-content-center align-items-center " style="position: relative; z-index: 99; margin-top: -590px;">
     @yield('content')
 </div>
 

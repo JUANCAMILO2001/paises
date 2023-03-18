@@ -15,14 +15,14 @@ class DepartmentsController extends Controller
 
     public function index(Request $request)
     {
-        $countries =Country::all();
+
 
         $departments = Department::when($request->country,function($q) use($request){
             $q->where('countries_id',$request->country);
         })->when($request->q,function($q) use($request){
             $q->where('name','like','%'.$request->q.'%');
         })->get();
-        return view('departments.index', compact('departments','countries'));
+        return view('departments.index', compact('departments'));
 
     }
 

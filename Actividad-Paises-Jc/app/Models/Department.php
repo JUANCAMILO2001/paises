@@ -17,6 +17,6 @@ class Department extends Model
 
     public function countries()
     {
-        return $this->belongsTo('App\Models\Countries', 'countries_id');
+        return $this->belongsTo('App\Models\Country', 'countries_id');
     }
 }

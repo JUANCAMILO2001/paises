@@ -9,6 +9,9 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
     <link rel="stylesheet" href="{{url('./recursos/css/style.css')}}">
 </head>
 <body style="overflow-x:hidden">
@@ -114,7 +117,7 @@
                         </a>
                     </li>
                     <li class = "navbar-sb-link my-3">
-                        <a data-bs-toggle="modal" data-bs-target="#ModalNewDepartamento" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a href = "{{route('departments.create')}}" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-earth-africa"></i>
@@ -125,7 +128,7 @@
                     </li>
 
                     <li class = "navbar-sb-link my-3">
-                        <a data-bs-toggle="modal" data-bs-target="#ModalNewMunicipio" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a href = "{{route('municipalities.create')}}" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-earth-africa"></i>
@@ -161,7 +164,7 @@
                     </li>
 
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a href = "{{route('municipalities.index')}}"  class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-list"></i>
@@ -351,18 +354,43 @@
     </div>
 </main>
 
-<footer>
-    <div>
-
-    </div>
-</footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
 <script src="{{'./recursos/js/script.js'}}"></script>
 <script src="{{url('./recursos/js/particles.min.js')}}"></script>
 <script src="{{url('./recursos/js/app-Dashboard.js')}}"></script>
+
+<script>
+    $('#PaisesTable').DataTable({
+        responsive: true,
+        autoWidth: false,
+
+        "language": {
+            "lengthMenu": "Mostrar "+ `<select class='custom-select custom-select-sm form-control form-control-sm '>
+<option value='10'>10</option>
+<option value='25'>25</option>
+<option value='50'>50</option>
+<option value='100'>100</option>
+<option value='-1'>All</option>
+</select>`    +" registros por página.",
+            "zeroRecords": "No se Encontro el Registro - Lo Sentimos.",
+            "info": "Mostrando la Página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(Filtrado de _MAX_ registros Totales.)",
+            'search': 'Buscar: ',
+            'paginate': {
+                'next': 'Siguiente',
+                'previous': 'Anterior'
+            }
+        }
+    });
+</script>
 
 
 </body>

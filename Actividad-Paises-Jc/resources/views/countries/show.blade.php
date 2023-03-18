@@ -8,35 +8,36 @@
             <div class = "overview-section p-4 ">
                 <div>
                     <div class="d-flex justify-content-between">
-                        <h3>Detalles del listado de Paises <span>{{$country->name}}</span></h3>
-                        <a style="cursor: pointer" class="d-flex flex-reverse text-decoration-none" title="Nuevo Pais" data-bs-toggle="modal" data-bs-target="#ModalNewPais"><i class="fa-solid fa-plus"></i></a>
+                        <h3>Listado de los Departamentos del Pais de <span>{{$country->name}}</span></h3>
+                        <a href="{{route('departments.create')}}" style="cursor: pointer" class="d-flex flex-reverse text-decoration-none" title="Nuevo Departamento"><i class="fa-solid fa-plus"></i></a>
                     </div>
-
-                    <table class="table table-hover">
-                        <thead class="text-center">
-                        <tr>
-                            <th scope="col">Nombre del Departamento</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                        </thead>
-                        <tbody class="text-center">
-                        @foreach($departments as $department)
-
+                    <div class="">
+                        <table class="table table-hover"  id="PaisesTable">
+                            <thead class="text-center">
                             <tr>
-                                <td><span  title="Departamento">{{$department -> name}}</span></td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <a href="{{route('departments.show',$department->id)}}"
-                                           class=" btn btn-success"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-
-                                </td>
+                                <th scope="col">Nombre del Departamento</th>
+                                <th scope="col">Acciones</th>
                             </tr>
-                        @endforeach
+                            </thead>
+                            <tbody class="text-center">
+                            @foreach($departments as $department)
 
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td><span  title="Departamento">{{$department -> name}}</span></td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <a href="{{route('departments.show',$department->id)}}"
+                                               class=" btn btn-success"><i class="fa-solid fa-eye"></i></a>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

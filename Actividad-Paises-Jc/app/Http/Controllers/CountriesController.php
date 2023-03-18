@@ -42,11 +42,11 @@ class CountriesController extends Controller
      */
     public function show (string $id)
     {
-        $countries = Country::find($id);
+        $country = Country::find($id);
         $departments = Department::where('countries_id',$id)->get();
 
 
-        return view('countries.index',compact( 'departments','countries'));
+        return view('countries.show',compact( 'departments','country'));
     }
 
     /**

@@ -63,7 +63,7 @@
                         </div>
                         <!-- Listar Departamento-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "" class = "text-decoration-none">
+                            <a href = "{{route('departments.index')}}" class = "text-decoration-none">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Listar Departamento</span>
@@ -73,7 +73,7 @@
                         </div>
                         <!-- Listar Municipio-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a href = "{{route('municipalities.index')}}" class = "text-decoration-none">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Listar Municipio</span>
