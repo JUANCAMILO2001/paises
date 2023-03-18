@@ -35,11 +35,17 @@
 
                 <div class = "navigation-bar-right col-6 d-flex align-items-center justify-content-end">
 
-
+                     {{session('google')}}
 
                     <li class="nav-item dropdown" style="list-style: none">
                         <a class="profile-btn  text-white btn-circle me-3 nav-link " title="{{auth()->user()->names}}  {{auth()->user()->lastnames}}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            <img class="d-flex justify-content-center border  text-white btn-circle mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
+                            @if(session('google')== true)
+                                <img class="d-flex justify-content-center border  text-white btn-circle mt-3 mb-3 me-3" src="{{auth()->user()->avatar}}">
+
+                            @else
+                                <img class="d-flex justify-content-center border  text-white btn-circle mt-3 mb-3 me-3" src="https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg">
+
+                            @endif
                         </a>
                         <ul class="dropdown-menu shadow-lg  mb-5 bg-body-tertiary rounded">
                             <div class="img-dropdown-user">
@@ -362,9 +368,9 @@
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
-<script src="{{'./recursos/js/script.js'}}"></script>
-<script src="{{url('./recursos/js/particles.min.js')}}"></script>
-<script src="{{url('./recursos/js/app-Dashboard.js')}}"></script>
+<script src="{{ url('recursos/js/script.js')}}"></script>
+<script src="{{url('recursos/js/particles.min.js')}}"></script>
+<script src="{{url('recursos/js/app-Dashboard.js')}}"></script>
 
 <script>
     $('#PaisesTable').DataTable({

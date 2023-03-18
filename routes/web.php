@@ -21,12 +21,9 @@ use App\Models\User;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::redirect('/','/login');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -44,6 +41,7 @@ Route::get('/google-callback', function () {
 
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'google')->first();
     if ($userExists) {
+        session(['google' => true]);
         Auth::login($userExists);
     } else {
         $userNew = User::create([
@@ -53,6 +51,7 @@ Route::get('/google-callback', function () {
             'external_id' => $user->id,
             'external_auth' => 'google',
         ]);
+        session(['google' => true]);
         Auth::login($userNew);
 
 
