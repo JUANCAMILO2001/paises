@@ -26,7 +26,7 @@
                         <i class = "fas fa-bars"></i>
                     </button>
                     <div class = "navbar-logo">
-                        <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0"></i>      ACT PAISES </a>
+                        <a class="navbar-brand" href="{{route('dashboard')}}"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0"></i>      ACT PAISES </a>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
 
     <div class = "navigation-sidebar bg-light-grey">
         <div class = "navbar-sb-head d-flex justify-content-between align-items-center px-4">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0;"></i>      ACT PAISES </a>
+            <a class="navbar-brand" href="{{route('dashboard')}}"><i class="fa-solid fa-earth-africa" style="margin-rights: 5px; color: #0DCAF0;"></i>      ACT PAISES </a>
             <button class = "navbar-close-btn text-grey-blue">
                 <i class = 'fas fa-arrow-left'></i>
             </button>
@@ -104,7 +104,7 @@
                 <h5 class = "text-uppercase text-grey navbar-sb-item-title fs-12 ls-1">CREAR</h5>
                 <ul class = "navbar-sb-links p-0 list-unstyled">
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a data-bs-toggle="modal" data-bs-target="#ModalNewPais" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-earth-africa"></i>
@@ -114,7 +114,7 @@
                         </a>
                     </li>
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a data-bs-toggle="modal" data-bs-target="#ModalNewDepartamento" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-earth-africa"></i>
@@ -125,7 +125,7 @@
                     </li>
 
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a data-bs-toggle="modal" data-bs-target="#ModalNewMunicipio" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-earth-africa"></i>
@@ -140,7 +140,7 @@
                 <h5 class = "text-uppercase text-grey navbar-sb-item-title fs-12 ls-1">LISTAR</h5>
                 <ul class = "navbar-sb-links p-0 list-unstyled">
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a href="{{route('countries.index')}}" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-list"></i>
@@ -150,7 +150,7 @@
                         </a>
                     </li>
                     <li class = "navbar-sb-link my-3">
-                        <a href = "#" class = "text-decoration-none d-flex align-items-center justify-content-between">
+                        <a href = "{{route('departments.index')}}" class = "text-decoration-none d-flex align-items-center justify-content-between">
                             <div class = "text-light-blue d-flex align-items-center">
                                     <span class = "navbar-sb-icon me-3">
                                         <i class="fa-solid fa-list"></i>
@@ -266,6 +266,88 @@
         <div class = "dashboard-pg text-grey-blue">
             @yield('content')
         </div>
+
+
+
+        <!-- Modal Nuevo Pais -->
+        <div class="modal fade" id="ModalNewPais" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form action="{{route('countries.store')}}" method="post">
+                        @csrf
+                        @method('Post')
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Pais</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div>
+                                    <label class="mt-4">Escriba el nombre de su nuevo Pais:</label>
+                                    <div class="input-group mt-3 mb-3">
+                                        <div class="input-group-text bg-info">
+                                            <i class="fa-solid fa-earth-africa" style="color: white; font-size: 21px"></i>
+                                        </div>
+                                        <input class="form-control bg-light" name="name" type="text" placeholder="Nombre del Pais."/>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Crear Pais</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Nuevo Municipio -->
+        <div class="modal fade" id="ModalNewMunicipio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form action="">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Municipio</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div>
+                                    <label class="mt-4">Escriba el nombre de su Nuevo Municipio:</label>
+                                    <div class="input-group mt-3 mb-3">
+                                        <div class="input-group-text bg-info">
+                                            <i class="fa-solid fa-earth-africa" style="color: white; font-size: 21px"></i>
+                                        </div>
+                                        <input class="form-control bg-light" name="" type="text" placeholder="Nombre del Municipio."/>
+                                    </div>
+                                    <label class="mt-4">Seleccione a que Departamento pertenece:</label>
+                                    <div class="input-group mt-3 mb-3">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </main>
 

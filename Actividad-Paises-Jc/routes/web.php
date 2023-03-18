@@ -31,7 +31,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('countries', CountriesController::class);
-    Route::resource('Departments', DepartmentsController::class);
+    Route::resource('departments', DepartmentsController::class);
     Route::resource('Municipalities', MunicipalitiesController::class);
 });
 

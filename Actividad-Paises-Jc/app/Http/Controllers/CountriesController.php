@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\Department;
 
 class CountriesController extends Controller
 {
@@ -30,13 +31,23 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        $countries = Country::create(['id' => $request->id,
+        $countries = Country::create([
             'name' => $request->name,
         ]);
         return redirect()->route('countries.index')->with('success', 'El Pais se ha creado correctamente.');
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show (string $id)
+    {
+        $countries = Country::find($id);
+        $departments = Department::where('countries_id',$id)->get();
 
+
+        return view('countries.index',compact( 'departments','countries'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -44,6 +55,7 @@ class CountriesController extends Controller
     public function edit(string $id)
     {
         $countries = Country::find($id);
+
         return view('countries.edit', compact('countries'));
     }
 

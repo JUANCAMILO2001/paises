@@ -23,7 +23,7 @@
                     <div class = "row overview-section-list gy-4">
                         <!-- Nuevo Pais-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a class = "text-decoration-none" data-bs-toggle="modal" data-bs-target="#ModalNewPais">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Nuevo Pais</span>
@@ -33,7 +33,7 @@
                         </div>
                         <!-- Nuevo Departamento-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a href = "{{route('departments.create')}}" class = "text-decoration-none" >
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Nuevo Departamento</span>
@@ -43,7 +43,7 @@
                         </div>
                         <!-- Nuevo Municipio-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a href = "#" class = "text-decoration-none" data-bs-toggle="modal" data-bs-target="#ModalNewMunicipio">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Nuevo Municipio</span>
@@ -53,7 +53,7 @@
                         </div>
                         <!-- Listar Pais-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a href="{{route('countries.index')}}" class = "text-decoration-none">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Listar Pais</span>
@@ -63,7 +63,7 @@
                         </div>
                         <!-- Listar Departamento-->
                         <div class = "col-md-6 col-lg-4">
-                            <a href = "#" class = "text-decoration-none">
+                            <a href = "" class = "text-decoration-none">
                                 <div class = "overview-section-item bg-white p-4">
                                     <div class = "item-title text-cyan fs-4 fw-6 mb-1">
                                         <span class = "text-blue">Listar Departamento</span>

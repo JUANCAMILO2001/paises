@@ -12,7 +12,7 @@ class Department extends Model
     protected $primarykey = 'id';
     protected $fillable = [
         'name',
-        'paises_id',
+        'countries_id',
     ];
 
     public function countries()
