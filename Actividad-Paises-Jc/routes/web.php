@@ -32,7 +32,7 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('countries', CountriesController::class);
     Route::resource('departments', DepartmentsController::class);
-    Route::resource('Municipalities', MunicipalitiesController::class);
+    Route::resource('municipalities', MunicipalitiesController::class);
 });
 
 Route::get('/login-google', function () {

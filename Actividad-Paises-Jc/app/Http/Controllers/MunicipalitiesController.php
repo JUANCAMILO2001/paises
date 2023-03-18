@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\Municipality;
 
 class MunicipalitiesController extends Controller
 {
@@ -11,7 +13,8 @@ class MunicipalitiesController extends Controller
      */
     public function index()
     {
-        //
+        $municipalities = Municipality::all();
+        return  view('municipalities.index', compact('municipalities'));
     }
 
     /**
@@ -19,7 +22,10 @@ class MunicipalitiesController extends Controller
      */
     public function create()
     {
-        //
+        $departments= Department::all();
+        $municipalities = Municipality::all();
+        return view('municipalities.create', compact('municipalities','departments'));
+
     }
 
     /**
@@ -27,23 +33,31 @@ class MunicipalitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $municipality=Municipality::create([
+            'id' => $request->id,
+            'name' => $request->name,
+            'departments_id' => $request->departments_id,
+            ]);
+        return redirect()->route('municipalities.index')->with('success', 'El municipio Se ha creado correctamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    // public function show(string $id)
+    //{
+
+    // }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $departments= Department::all();
+        $department= Department::find($id);
+        $municipality = Municipality::find($id);
+        return view('municipalities.edit', compact('municipality','departments','department'));
     }
 
     /**
@@ -51,7 +65,8 @@ class MunicipalitiesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $municipality = Municipality::find($id)->update($request->all());
+        return redirect()->route('municipalities.index');
     }
 
     /**
@@ -59,6 +74,7 @@ class MunicipalitiesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $municipality = Municipality::find($id)->delete();
+        return redirect()->route('municipalities.index');
     }
 }
